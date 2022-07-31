@@ -2,7 +2,9 @@
   <div>
     <!-- 头部区域 -->
     <header>
-      <div class="login" v-if="isLogin">登录盒子</div>
+      <div class="login" v-if="isLogin">
+        <div class="user-info banner"></div>
+      </div>
       <div class="logout" v-else>未登录盒子</div>
     </header>
 
@@ -33,4 +35,13 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="less" scoped>
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+.banner {
+  width: 100%;
+  height: 5.33rem;
+}
+</style>
