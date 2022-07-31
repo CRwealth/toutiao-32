@@ -11,7 +11,7 @@ import 'amfe-flexible'
 
 Vue.use(Vant)
 Vue.config.productionTip = false
-
+// $store = store
 new Vue({
   router,
   store,
