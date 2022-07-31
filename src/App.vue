@@ -1,19 +1,20 @@
 <template>
   <div>
-    黑马头条
-    <span class="toutiao toutiao-wuwangluo"></span>
-    <van-button type="primary">主要按钮</van-button>
-    <van-button type="info">信息按钮</van-button>
-    <van-button type="default">默认按钮</van-button>
-    <van-button type="warning">警告按钮</van-button>
-    <van-button type="danger">危险按钮</van-button>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
+// 移动端适配
+// 1.rem动起来
+// amfe-flexible
+// 2.将px-->rem
+// postcss-pxtorem
+
+// Content-Type 内容类型
 export default {
   name: 'App'
 }
 </script>
 
-<style></style>
+<style lang="less" scoped></style>
