@@ -11,7 +11,9 @@
             <span>洪涛11</span>
           </div>
           <div class="right">
-            <van-button size="mini" round class="edit">编辑资料</van-button>
+            <van-button size="mini" round class="edit" to="/my/profile"
+              >编辑资料</van-button
+            >
           </div>
         </div>
         <div class="three">
