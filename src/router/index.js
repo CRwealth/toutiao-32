@@ -18,7 +18,11 @@ const routes = [
       { path: '/ ', component: () => import('../views/Home/index.vue') },
       { path: '/video', component: () => import('../views/video/index.vue') },
       { path: '/qa', component: () => import('../views/QA/index.vue') },
-      { path: '/my', component: () => import('../views/My/index.vue') }
+      { path: '/my', component: () => import('../views/My/index.vue') },
+      {
+        path: '/my/profile',
+        component: () => import('../views/user-profile/index.vue')
+      }
     ]
   }
 ]
