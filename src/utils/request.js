@@ -14,7 +14,7 @@ request.interceptors.request.use(
     // 在发送请求前做些什么
     const token = store.state.tokenObj.token
     if (token) {
-      config.headers.Authorization = 'Bearer' + token
+      config.headers.Authorization = 'Bearer ' + token
     }
     // config一定要返回
     return config

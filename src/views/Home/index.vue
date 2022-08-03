@@ -21,13 +21,21 @@
       closeable
       close-icon-position="top-left"
     >
-      <ChannelPopup></ChannelPopup>
+      <ChannelPopup
+        :mychannels="myChannels"
+        @close="show = false"
+        @change-active="active = $event"
+        @del-channel="delChannel"
+      ></ChannelPopup>
     </van-popup>
   </div>
 </template>
 
 <script>
-import { getMyChannel as getMyChannelAPI } from '@/api'
+// $event 模板
+//  - 原生事件: 事件对象
+// - 自定义事件当中：子组件传递过来的第一个参数
+import { getMyChannel as getMyChannelAPI, delChannel } from '@/api'
 import ArticleList from './components/ArticleList.vue'
 import ChannelPopup from './components/ChannelPopup.vue'
 
@@ -54,6 +62,14 @@ export default {
         console.dir(error)
         this.$toast.fail('获取频道失败，请刷新')
       }
+    },
+    // 删除频道
+    async delChannel (id) {
+      // 1.删除服务器的数据
+      // 2.删除页面上的数据
+      const { data } = await delChannel(id)
+      console.log(data)
+      this.myChannels = this.myChannels.filter((item) => item.id !== id)
     }
   },
   components: {
