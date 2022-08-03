@@ -39,7 +39,7 @@ export default {
       try {
         const { data } = await getUserProfile()
         console.log(data)
-        // this.user = data.data
+        this.user = data.data
       } catch (error) {
         this.$toast('数据获取失败')
       }
