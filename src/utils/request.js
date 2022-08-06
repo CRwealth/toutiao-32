@@ -6,7 +6,7 @@ import store from '@/store'
 // request.defaults.timeout = 3000
 const request = axios.create({
   baseURL: 'http://toutiao.itheima.net',
-  timeout: 5000
+  timeout: 10000
 })
 
 // 添加请求拦截器

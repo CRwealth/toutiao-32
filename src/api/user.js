@@ -38,3 +38,42 @@ export const updataUserProfile = (data) => {
     data
   })
 }
+
+/**
+ * 更新头像
+ */
+// 如果传的是对象，axios默认将对象转换成json并且加上content-type=application/json
+// 如果传的是formData表单，那么axios会将表单提交给后端，并且会默认会加上multipart/form-data
+// 如果后端要的是表单(form-data)
+// - const fm = new FormData()
+//  fm.append(表单的name,表单项)
+
+// file 图片的file对象
+// 第一种方式
+// export const updateUserPhoto = (file) => {
+// const fm = new FormData()
+// fm.append('photo', file)
+//   return request({
+//     method: 'PATCH',
+//     url: '/v1_0/user/photo',
+//     data:fm
+//   })
+// }
+
+// 第二种方式
+export const updateUserPhoto = (data) => {
+  return request({
+    method: 'PATCH',
+    url: '/v1_0/user/photo',
+    data
+  })
+}
+/**
+ * 获取用户自己的信息
+ */
+export const getUserInfo = () => {
+  return request({
+    method: 'GET',
+    url: '/v1_0/user'
+  })
+}

@@ -7,8 +7,8 @@
         <div></div>
         <div class="two">
           <div class="left">
-            <img src="../../assets/images/cx.webp" alt="" />
-            <span>洪涛11</span>
+            <img :src="userInfo.photo" />
+            <span>洪涛11超猛的</span>
           </div>
           <div class="right">
             <van-button size="mini" round class="edit" to="/my/profile"
@@ -18,19 +18,19 @@
         </div>
         <div class="three">
           <div>
-            <span>5029</span>
+            <span>{{ userInfo.art_count }}</span>
             <span>头条</span>
           </div>
           <div>
-            <span>16</span>
+            <span>{{ userInfo.fans_count }}</span>
             <span>粉丝</span>
           </div>
           <div>
-            <span>0</span>
+            <span>{{ userInfo.follow_count }}</span>
             <span>关注</span>
           </div>
           <div>
-            <span>0</span>
+            <span>{{ userInfo.like_count }}</span>
             <span>获赞</span>
           </div>
         </div>
@@ -82,6 +82,7 @@
 </template>
 
 <script>
+import { getUserInfo } from '@/api'
 export default {
   name: 'myIndex',
   // data() {
@@ -89,6 +90,16 @@ export default {
   //     isLogin: !!this.$store.state.tokenObj.token
   //   }
   // }
+  data () {
+    return {
+      userInfo: {} // 用户信息
+    }
+  },
+  created () {
+    // 如果用户登录了，则请求加载用户数据
+
+    this.loadUserInfo()
+  },
   computed: {
     isLogin () {
       // 一个！是取反 两个！！ 是转换成布尔值
@@ -110,6 +121,15 @@ export default {
         .catch(() => {
           // on cancel
         })
+    },
+    async loadUserInfo () {
+      try {
+        const { data } = await getUserInfo()
+        console.log(data)
+        this.userInfo = data.data
+      } catch (error) {
+        this.$toast.fail('获取数据失败，请稍后重试')
+      }
     }
   }
 }
