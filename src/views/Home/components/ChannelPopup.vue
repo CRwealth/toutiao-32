@@ -52,13 +52,13 @@ export default {
       required: true
     }
   },
-  data() {
+  data () {
     return {
       isEdit: false,
       allChannels: []
     }
   },
-  created() {
+  created () {
     this.getAllChannels()
   },
   // 如果说, 我的频道里有aItem
@@ -69,7 +69,7 @@ export default {
   //   return true
   // }
   computed: {
-    recommendChannels() {
+    recommendChannels () {
       // 所有频道减去我的频道
       // 减-->删选
       // 如果aItem在MyChaneels数组里出现了,过滤掉
@@ -81,7 +81,7 @@ export default {
   },
   methods: {
     // 请求所有频道
-    async getAllChannels() {
+    async getAllChannels () {
       try {
         const { data } = await getAllChannelsAPI()
 
@@ -92,7 +92,7 @@ export default {
     },
     // 改变tab的active
     //  this.$parent: 当前组件实例的亲身父亲的组件
-    changeActive(index, item) {
+    changeActive (index, item) {
       if (this.isEdit) {
         if (item.name === '推荐') return
 

@@ -28,6 +28,12 @@ const routes = [
   {
     path: '/search',
     component: () => import('../views/Search')
+  },
+  {
+    // 文章根据id获取这个文章，所以需要动态路由 :XXX
+    path: '/article/:articleId',
+    component: () => import('../views/article'),
+    props: true // 开启 Props 传参，说白了就是把路由参数映射到组件的 props 数据中
   }
 ]
 

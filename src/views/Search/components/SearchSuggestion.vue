@@ -4,6 +4,7 @@
       icon="search"
       v-for="(item, index) in highlightSuggestions"
       :key="index"
+      @click="search(index)"
     >
       <template #title>
         <span v-html="item"></span>
@@ -69,15 +70,20 @@ export default {
 
     // 处理搜索建议+防抖
     // 单一职责原则
+
     getSearchSuggetion: debounce(async function () {
       try {
         const { data } = await getSearchSuggetionAPI(this.keyword)
-        console.log(data)
+        // console.log(data)
         this.suggetion = data.data.options.filter(Boolean)
       } catch (error) {
         this.$toast.fail('获取搜索建议失败')
       }
-    }, 300)
+    }, 300),
+    search (index) {
+      const data = this.suggetion[index]
+      this.$emit('search', data)
+    }
   }
 }
 </script>

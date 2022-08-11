@@ -28,3 +28,5 @@ Vue.filter('relativeTime', (value) => {
 
 // dayjs().to(dayjs('1990-01-01')) // 31 年前
 // dayjs().toNow()
+
+// 记得要在main里面引入

@@ -7,7 +7,10 @@ module.exports = {
     // rootValue:37.5
     'postcss-pxtorem': {
       rootValue: ({ file }) => (/vant/i.test(file) ? 37.5 : 75),
-      propList: ['*']
+      propList: ['*'],
+
+      // 配置不要转换的样式资源
+      exclude: 'github-markdown'
     }
   }
 }
